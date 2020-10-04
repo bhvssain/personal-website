@@ -53,13 +53,19 @@ a:visited {
 }
 
 .score {
-    opacity: 0;
-    position: absolute;
-    top: -5px;
-    right: -65px;
-    font-family: Barlow, sans-serif;
-    font-size: 30px;
-    font-weight: 800;
+    display: none;
+}
+
+@media only screen and (min-width: 1025px) {
+    .score {
+        opacity: 0;
+        position: absolute;
+        top: -5px;
+        right: -65px;
+        font-family: Barlow, sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+    }
 }
 
 article {
@@ -235,21 +241,21 @@ footer:hover {
 
 .bin, .game {
     display: none;
-    position: fixed;
-    bottom: 30px;
-}
-
-.bin {
-    right: 30px;
-}
-
-.game {
-    left: 30px;
 }
 
 @media only screen and (min-width: 1025px) {
     .bin, .game {
         display: block;
+        position: fixed;
+        bottom: 30px;
+    }
+
+    .bin {
+        right: 30px;
+    }
+    
+    .game {
+        left: 30px;
     }
 }
 

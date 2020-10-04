@@ -12,6 +12,7 @@ const website = (function() {
 		binIcon : $('.js-bin-icon'),
 		trump: $('.trump'),
 		asideTrigger: $('.js-aside-trigger'),
+		windowWidth: $(window).width(),
 	}
 
 	const CLASSNAMES = {
@@ -23,6 +24,8 @@ const website = (function() {
 		normal: 250,
 		fast: 125,
 	}
+
+	const TABLET_LANDSCAPE_PLUS = SELECTORS.windowWidth > 1024;
 
 	function showScoreAfterClosingContent(parentArticle) {
 		parentArticle.find(SELECTORS.score).fadeTo(ANIM_SPEEDS.fast, 1)
@@ -48,7 +51,10 @@ const website = (function() {
 
 		articlesClosed++
 
-		showScoreAfterClosingContent(parentArticle)
+		if (TABLET_LANDSCAPE_PLUS) {
+			showScoreAfterClosingContent(parentArticle)
+		}
+
 		showThisShitWhenAllContentsAreClosed(articlesClosed)
 
 		parentArticle.delay(ANIM_SPEEDS.normal).slideUp(ANIM_SPEEDS.normal, function() {
@@ -130,30 +136,39 @@ const website = (function() {
 	// 	}
 	// }
 
+	function setCustomCursors() {
+		if (TABLET_LANDSCAPE_PLUS) {
+			new springyEmojiCursor({
+				element: document.querySelector("article:nth-child(1)"),
+				emoji: ["🤡"]
+			});
+			
+			new springyEmojiCursor({
+				element: document.querySelector("article:nth-child(2)"),
+				emoji: ["🎓"]
+			});
+			
+			new springyEmojiCursor({
+				element: document.querySelector("article:nth-child(3)"),
+				emoji: ["😂"]
+			});
+			
+			new springyEmojiCursor({
+				element: document.querySelector("article:nth-child(4)"),
+				emoji: ["💌"]
+			});
+		}
+	}
+
 	return {
 		bindElements,
+		setCustomCursors,
 		// setIeClassToBody,
 	};
 })();
 
 website.bindElements()
+website.setCustomCursors()
 // website.setIeClassToBody()
-new springyEmojiCursor({
-	element: document.querySelector("article:nth-child(1)"),
-	emoji: ["🤡"]
-});
 
-new springyEmojiCursor({
-	element: document.querySelector("article:nth-child(2)"),
-	emoji: ["🎓"]
-});
 
-new springyEmojiCursor({
-	element: document.querySelector("article:nth-child(3)"),
-	emoji: ["😂"]
-});
-
-new springyEmojiCursor({
-	element: document.querySelector("article:nth-child(4)"),
-	emoji: ["💌"]
-});
