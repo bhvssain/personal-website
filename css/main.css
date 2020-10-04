@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700;800&display=swap');
+
+body {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    overflow-y: scroll;
+    margin: 0;
+}
+
+h1, footer {
+    margin: 0;
+    font-family: Barlow, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-weight: 500;
+}
+
+p {
+    margin: 0;
+    font-weight: 300;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: purple;
+}
+
+
+
+.page {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.score {
+    opacity: 0;
+    position: absolute;
+    top: -5px;
+    right: -65px;
+    font-family: Barlow, sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+article {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    margin: 10px;
+    position: relative;
+}
+
+@media only screen and (min-width: 800px) {
+    article {
+        margin: 20px 0;
+    }
+}
+
+article.is-hidden {
+    display: none;
+}
+
+.article__header {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 1px solid black;
+    padding: 5px 5px 5px 10px;
+    position: relative;
+}
+
+.article__header.is-meme {
+    background: linear-gradient(45deg, #cfe9ff, #d6ffcf)
+}
+
+.article__content {
+    padding: 10px;
+}
+
+.article__content.is-clean {
+    padding: 0;
+}
+
+.article__content.is-social-media {
+    text-align: center;
+}
+
+.article__content p,
+.article__content li {
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 1.35;
+}
+
+@media only screen and (min-width: 800px) {
+    .article__content p,
+    .article__content li {
+        font-size: 26px;
+        margin: 0 0 30px;
+    }
+}
+
+.article__content em {
+    font-style: normal;
+    color: rgba(0,0,0,0.5);
+}
+
+.article__content.is-clean h1 {
+    padding-left: 10px;
+    margin: 20px 0;
+}
+
+.article__hidden-gif {
+    margin-left: -10px;
+    margin-bottom: -10px;
+    width: calc(100% + 20px);
+}
+
+.controls__close {
+    cursor: pointer;
+}
+
+.controls__close i {
+    font-size: 18px;
+}
+
+.meme {
+    position: relative;
+    overflow: hidden;
+}
+
+.meme::after {
+    content: "";
+    display: none;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color 250ms;
+}
+
+.meme:hover::after {
+    background-color: transparent;
+}
+
+.meme:hover span {
+    display: none;
+}
+
+.meme span {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 100;
+}
+
+@media only screen and (min-width: 800px) {
+    .meme::after,
+    .meme span {
+        display: block;
+    }
+}
+
+.social-media, .arrow-down {
+    font-size: 24px;
+}
+
+.social-media ul {
+    justify-content: space-around;
+    display: flex;
+}
+
+.social-media li {
+    cursor: pointer;
+}
+
+.social-media__text {
+    display: none;
+}
+
+@media only screen and (min-width: 1025px) {
+    .social-media__text {
+        display: block;
+    }
+}
+
+.social-media del {
+    color: rgba(0,0,0,0.15);
+}
+
+.arrow-down {
+    margin-bottom: 40px;
+}
+
+footer {
+    text-align: center;
+    margin: 0 0 20px;
+    filter: blur(1px);
+    transition: filter 350ms;
+}
+
+footer:hover {
+    filter: blur(0);
+}
+
+
+.bin, .game {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+}
+
+.bin {
+    right: 30px;
+}
+
+.game {
+    left: 30px;
+}
+
+@media only screen and (min-width: 1025px) {
+    .bin, .game {
+        display: block;
+    }
+}
+
+.aside-icon {
+    font-size: 25px;
+    cursor: pointer;
+    touch-action: none;
+}
+
+.aside__content {
+    display: none;
+    width: 300px;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    border: 3px solid black;
+}
+
+.bin__container {
+    left: auto;
+    right: 0;
+}
