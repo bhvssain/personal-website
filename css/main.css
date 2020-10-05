@@ -17,8 +17,14 @@ h1, footer {
 }
 
 h2 {
-    margin: 0 0 20px;
+    margin: 0 0 5px;
     font-weight: 500;
+}
+
+@media only screen and (min-width: 800px) {
+    h2 {
+        margin: 0 0 20px;
+    }
 }
 
 p {
