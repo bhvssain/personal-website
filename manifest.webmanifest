@@ -1,0 +1,8 @@
+{
+  "name": "Bilal Hussain: Personal Website",
+  "description": "Personal website and playground of Bilal Hussain",
+  "background_color": "#000000",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#000000"
+}
